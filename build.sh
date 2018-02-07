@@ -8,9 +8,9 @@ yum install strongswan openssl
 
 # wget .sh 
 cd /etc/strongswan/ipsec.d
-wget https://raw.githubusercontent.com/michael-loo/strongswan_config/for_vultr/server_key.sh
+wget https://raw.githubusercontent.com/purecaptain/StrongSwan_CentOS_7/master/server_key.sh
 chmod a+x server_key.sh
-wget https://raw.githubusercontent.com/michael-loo/strongswan_config/for_vultr/client_key.sh
+wget https://raw.githubusercontent.com/purecaptain/StrongSwan_CentOS_7/master/client_key.sh
 chmod a+x client_key.sh
 
 read -p 'Input the machine IP address:  ' address
