@@ -17,8 +17,8 @@ read -p 'Input the machine IP address:  ' address
 
 ./server_key.sh $address
 
-read -p "User's name:  " username
-read -p "User's email:  " email
+read -p "create server with User's name:  " username
+read -p "create serve with User's email:  " email
 ./client_key.sh $username $email
 
 # configure strongswan
@@ -26,15 +26,15 @@ cd /etc/strongswan
 mv $basedir/ipsec.conf ipsec.conf
 mv $basedir/strongswan.conf strongswan.conf
 
-# configure account and pwd
+# configure account and password
 read -p "Account name:  " name
-read -p "Pwd:  " pwd
+read -p "Pwd:  " password
 sed -i '' "s/name/$name/g" $basedir/ipsec.secrets
-sed -i '' "s/pwd/$pwd/g" $basedir/ipsec.secrets
+sed -i '' "s/password/$password/g" $basedir/ipsec.secrets
 mv $basedir/ipsec.secrets ipsec.secrets
 
 # open ipv4
-echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf
+echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf
 sysctl -p
 
 # configure firewall
